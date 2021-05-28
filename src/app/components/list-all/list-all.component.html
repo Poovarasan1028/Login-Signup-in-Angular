@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <title>ListAll Users</title>
+  </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <body>
+
+    <!-- Toolbar -->
+
+    <h1 class="watch" >{{ time | date: 'hh:mm:ss a' }}</h1>
+    <h2 class="username" >{{data.name}}  
+      <div (click)="logout()" style="margin-left: 20px;margin-right: 20px;"  class="tooltip"><i class="fa fa-sign-out logouticon" ></i>
+        <span class="tooltiptext">Logout</span>
+      </div>
+      </h2>
+        
+    <!-- Search bar -->
+
+<div class="alignCenter form-container">
+  <input class="customSearch" type="text" style="border: transparent;" [(ngModel)]="username" placeholder="🔍 Serach by name or username"/>
+  </div>
+<hr style="clear: both;" />
+
+<!-- Table View -->
+
+<div id="container">
+<div d="navi">
+<table id="t01" class="table table-hover">  
+  <thead>  
+      <tr>  
+        <th>Sl No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Phone</th>
+        <th>Department</th>
+      </tr>  
+  </thead>  
+  <tbody>  
+    <tr *ngFor="let data of users | Filter:username;let i = index" (click)="ClickedRow(i)" [class.active]="i == HighlightRow">
+      <td scope="row">{{i+1}}</td>
+       <td>{{data.name}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.username}}</td>
+      <td>{{data.phone}}</td>
+      <td>{{data.department}}</td>
+      </tr>  
+  </tbody>  
+</table>  
+</div>
+
+<!-- Dialog View  -->
+
+  <form  [formGroup]="form" class="form-container">
+  <div class="form-group">
+
+<div class="centered" *ngIf="submitted" >
+  <div style="border-bottom: rgb(73, 72, 72) 1px solid;">
+    <h3>User Details</h3>
+  </div>
+
+  <table style="margin: 30px;" id="t01" class="table table-hover">  
+    <thead>  
+        <tr>  
+          <th>Name</th>
+          <th>Email</th>
+          <th>Username</th>
+          <th>Phone</th>
+          <th>Department</th>
+        </tr>  
+    </thead>  
+    <tbody>  
+      <tr>
+         <td>{{users[pos].name}}</td>
+        <td>{{users[pos].email}}</td>
+        <td>{{users[pos].username}}</td>
+        <td>{{users[pos].phone}}</td>
+        <td>{{users[pos].department}}</td>
+        </tr>  
+    </tbody>  
+  </table> 
+  
+  <!-- Add Department - Drop down-->
+     <label style="color: black; font-size: 20px; font-style: inherit;">Choose a Department : </label>
+     <div class="select">
+          <select formControlName="dep" [(ngModel)]="mySelect" (change)="selectChange($event)" id="dep">
+            <option *ngFor="let order of dep; let i = index" [value]="dep[i].branch">
+              {{dep[i].branch}}
+            </option>
+          </select>
+        </div>
+
+       <div style="display:flex;justify-content: center;align-items: center;">
+       <th style="border: white; width: 150px;">
+        <button class="btn" style="background-color: red;" (click)="closeData()" >Close</button></th>
+        <th style="border: white; width: 150px;">
+          <button [class]="!invalid ? 'btn disable' : 'btn' " (click)="saveDepartment()" >Save</button></th>
+    </div>
+
+    </div>
+  </div>
+</form>
+</div>
+
+<!-- Pagination - Change pages -->
+
+<!-- <mat-paginator style-paginator style="color: white; font-size: 30px; margin-top: 30px;" [length]="paginationLength"
+              [pageSize]="10"
+              [showFirstLastButtons]="true"
+              (page)="onChangePage($event)"
+            ></mat-paginator> -->
+
+
+            <div class="center">
+              <div class="pagination">
+                <a [routerLink]="" (click)="loadPagination('0')">&laquo;</a>
+
+                <a class="active" [routerLink]="" (click)="loadPagination('0')">1</a>
+                <a [routerLink]="" (click)="loadPagination('1')">2</a>
+                <a [routerLink]="" (click)="loadPagination('2')">3</a>
+
+                <a [routerLink]="" (click)="loadPagination('2')">&raquo;</a>
+              </div>
+            </div>
+
+           
+  </body>
+  </html>

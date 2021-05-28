@@ -1,0 +1,241 @@
+table {
+    width:90%;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 20px;
+  }
+  table, th, td {
+    border: 1px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 15px;
+    text-align: left;
+  }
+  #t01 tr:nth-child(even) {
+    background-color: rgb(119, 220, 245);
+  }
+  #t01 tr:nth-child(odd) {
+    background-color: rgb(119, 220, 245);
+  }
+  #t01 th {
+    background-color: rgb(70, 68, 68);
+    color: white;
+  }
+
+.username{
+  float: right;
+  display: inline;
+  color: white;
+  font-size: 30px;
+  margin-left: 100px;
+}
+
+.watch{
+  text-align: left;
+  float: left;
+  color: white;
+  font-size: 30px;
+}
+
+.customSearch {
+  width: 50%;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 25px;
+  background: #f1f1f1;
+  box-shadow: 0 10px 40px 0 #dee9f8;
+  font-size: 20px;
+  border: transparent;
+  text-align: center;
+  justify-content: center;
+}
+
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: rgb(220, 231, 243);
+  outline: none;
+}
+
+.alignCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 350px;
+}
+
+.btn {
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 35px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.center {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.table tr.active td {  
+  background-color:#f87eee !important;  
+  color: white;  
+}
+
+
+/* Dialog style */
+
+#container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#navi,
+#infoi {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#infoi {
+  width: 500px;
+  height: 300px;
+  z-index: 10;
+  max-width: 500px;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  
+  font-size: 20px;
+  border-radius: 8px;
+  background-color: white;
+  border: rgb(194, 194, 194) 3px solid;
+  padding: 5px;
+  z-index: 100;
+}
+
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  border: black;
+  border-color: black;
+  border-width: 10px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.form-container .disable {
+  background-color: rgb(116, 116, 116);
+  cursor:unset;
+
+}
+
+/* Tool tip */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  cursor:pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(78, 75, 75);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 20px;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 50px;
+  right: -40px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.logouticon{
+  font-size: 22px;
+    color: white;
+    background-color: red;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Drop down - Department */
+
+select {
+  appearance: none;
+  outline: 0;
+  background: rgb(99, 183, 231);
+  background-image: none;
+  width: 100%;
+  height: 100%;
+  color: black;
+  cursor: pointer;
+  border:1px solid black;
+  border-radius:3px;
+  padding: 10px;
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.select {
+  position: relative;
+  display: block;
+  width: 15em;
+  height: 2em;
+  line-height: 3;
+  overflow: hidden;
+  border-radius:3px;
+  padding-bottom:10px;
+    
+}
+
+
+/* Pagination css */
+
+.centerpagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: rgb(243, 239, 239);
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}

@@ -1,0 +1,137 @@
+<html>
+  <title>SignUp</title>
+<body>
+  <h1 class="mypage">Signup Form</h1>
+
+  <div class="form-popup">
+    <form [formGroup]="angForm" novalidate  class="form-container">
+    <div>
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter a name"
+            required
+            [(ngModel)]="users.name"
+            name="name"        
+            formControlName="name"
+          />
+        </div>
+        <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+          <div style="color: red; margin: 10px;" *ngIf="angForm.controls['name'].errors?.required">
+          Name is required. *
+        </div>
+      </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter a Email"
+            id="email"
+            required
+            [(ngModel)]="users.email"
+            name="email"
+            formControlName="email"
+          />
+        </div>
+        <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+          <div style="color: red; margin: 10px;" *ngIf="angForm.controls['email'].errors?.required">
+          Email is required. *
+        </div>
+      </div>
+  
+        <div class="form-group">
+        <label for="username">Username *</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter a username"
+            id="username"
+            required
+            [(ngModel)]="users.username"
+            name="username"
+            formControlName="username"
+          />
+        </div>
+        <div *ngIf="angForm.controls['username'].invalid && (angForm.controls['username'].dirty || angForm.controls['username'].touched)" class="alert alert-danger">
+          <div style="color: red; margin: 10px;" *ngIf="angForm.controls['username'].errors?.required">
+          Username is required. *
+        </div>
+      </div>
+  
+        <div class="form-group">
+        <label for="password">Password *</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter a password"
+            id="password"
+            required
+            [(ngModel)]="users.password"
+            name="password"
+            formControlName="password"
+          />
+        </div>
+
+        <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+          <div style="color: red; margin: 10px;" *ngIf="angForm.controls['password'].errors?.required">
+          Password is required. *
+        </div>
+      </div>
+  
+        <div class="form-group">
+        <label for="phone">Phone *</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter a number"
+            id="phone"
+            required
+            [(ngModel)]="users.phone"
+            name="phone"
+            formControlName="phone"
+          />
+        </div>
+
+        <div *ngIf="angForm.controls['phone'].invalid && (angForm.controls['phone'].dirty || angForm.controls['phone'].touched)" class="alert alert-danger">
+          <div style="color: red; margin: 10px;" *ngIf="angForm.controls['phone'].errors?.required">
+          Phone number is required. *
+        </div>
+      </div>
+    
+        <!-- <form [formGroup]="form"> -->
+        <div>
+          <label for="position">Choose a position: * </label>
+          <select formControlName="position" [(ngModel)]="mySelect" (change)="selectChange($event)" id="pos">
+            <option *ngFor="let order of pos; let i = index" [value]="pos[i].id">
+              {{pos[i].id}}
+            </option>
+          </select>
+       </div>
+
+       <div *ngIf="angForm.controls['position'].invalid && (angForm.controls['position'].dirty || angForm.controls['position'].touched)" class="alert alert-danger">
+        <div style="color: red; margin: 10px;" *ngIf="angForm.controls['position'].errors?.required">
+        position is required. Please select position. *
+      </div>
+    </div>
+  
+        <button [disabled]="angForm.pristine || angForm.invalid" [class]="angForm.invalid ? 'btn disable' : 'btn' "  (click)="createUser()" >Create</button>
+        <button (click)="back()" class="btn cancel">Back</button>
+      <!-- </form>  -->
+      </div>
+  
+      <div style="background-color: transparent;" *ngIf="submitted">
+        <h3 style="text-align: center;">You successfully Signup</h3>
+        <button (click)="back()" class="btn cancel">Back</button>
+      </div>
+    </div>
+    </form>
+  </div>
+  </body>
+  </html>
+  
